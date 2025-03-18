@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&family=M+PLUS+Rounded+1c&display=swap");
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #80ae47;
+  padding: 50px 10px;
+}
+
+/*navigation bar*/
+.header {
+  background-color: #4b662a;
+  border-radius: 15px;
+  height: 70px;
+  width: 100%;
+}
+
+.navbar {
+  /* height: 70px;
+    width: 100%; */
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #131b09;
+  padding: 10px 30px;
+  /*transition*/
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*hover effect in nav*/
+.nav:hover {
+  font-size: 1.7rem;
+  color: white;
+  text-shadow: 2px 2px 4px white, 8px 8px 5px black;
+}
+
+/*Main content*/
+.home {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline {
+  font-family: "DM Sans", sans-serif;
+  font-size: 3rem;
+  color: #151d0c;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-shadow: 4px 4px 5px #4b662a;
+}
+
+.intro {
+  font-family: "Assistant", sans-serif;
+  font-size: 2rem;
+  padding-bottom: 10px;
+}
+
+.home .img {
+  width: 60%;
+  height: 500px;
+  margin: 20px 0;
+  background-image: url("rashniProfile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(70%);
+}
+
+.content {
+  font-family: "Assistant", sans-serif;
+  font-size: 1rem;
+  color: #151d0c;
+  padding: 20px 80px;
+}
+
+/*Footer*/
+.footer {
+  background-color: #131b09;
+  color: #4b662a;
+  border-radius: 15px;
+  height: 150px;
+  width: 100%;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contact h5 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  padding-bottom: 5px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.contact {
+  padding-bottom: 5px;
+  font-family: "Assistant", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .socialmedia {
+  display: flex;
+  flex-direction: row;
+}
+.footer .social .fa-brands {
+  padding: 5px;
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: #80ae47;
+  /*transition*/
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.footer .social .fa-brands:hover {
+  color: black;
+  font-size: 2rem;
+  padding: 6px;
+  text-shadow: 5px 5px 4px #8bc346;
+}
+
+/*media query*/
+@media (max-width: 768px) {
+  .home .img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+
+  .intro {
+    font-size: 1.5rem;
+  }
+
+  .content {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
