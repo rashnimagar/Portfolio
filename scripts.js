@@ -164,9 +164,11 @@ const DOCS = [
   },
 ];
 
+// ── Simple keyword search to find relevant chunks ──
 function retrieveChunks(query) {
   const q = query.toLowerCase();
   const words = q.split(/\s+/).filter((w) => w.length > 2);
+
   const scored = DOCS.map((doc) => {
     const combined = (doc.topic + " " + doc.content).toLowerCase();
     let score = 0;
@@ -176,6 +178,7 @@ function retrieveChunks(query) {
     });
     return { ...doc, score };
   });
+
   return scored
     .filter((d) => d.score > 0)
     .sort((a, b) => b.score - a.score)
@@ -189,9 +192,6 @@ const msgs = document.getElementById("apMsgs");
 const inp = document.getElementById("apInp");
 const btn = document.getElementById("apSend");
 const chatHistory = [];
-
-// ── YOUR GROQ API KEY ──
-const GROQ_API_KEY = "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"; //
 
 function addM(r, t) {
   const d = document.createElement("div");
@@ -241,15 +241,12 @@ ${context}`;
   if (chatHistory.length > 8) chatHistory.splice(0, 2);
 
   try {
-    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    const res = await fetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "llama3-8b-8192",
-        max_tokens: 300,
         messages: [{ role: "system", content: systemPrompt }, ...chatHistory],
       }),
     });
