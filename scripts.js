@@ -68,7 +68,6 @@ document.querySelectorAll(".cert-c").forEach((card) => {
 
 /* ── AI ASSISTANT (RAG-style) ── */
 
-// ── Full knowledge base — chunked by topic ──
 const DOCS = [
   {
     topic: "identity",
@@ -108,54 +107,44 @@ const DOCS = [
     topic: "projects chat",
     content: `Project: Real-Time Chat Application built with Flask and JavaScript. 
     This is Rashni's featured project. It enables real-time messaging between users 
-    without page reloads. She built it to deeply understand client-server architecture 
-    and how data flows between browser and server. She implemented real-time event 
-    handling on the Flask backend and a JavaScript frontend that updates the UI 
-    as messages arrive. This project gave her a strong mental model for real-time 
-    web patterns.`,
+    without page reloads. She implemented real-time event handling on the Flask backend 
+    and a JavaScript frontend that updates the UI as messages arrive.`,
   },
   {
     topic: "projects expense tracker finance",
     content: `Project: Expense Tracker built with Python, Flask, and SQLite. 
     This app lets users track, categorize, and analyze their daily expenses. 
     Rashni focused on clean data handling, structured storage, and building 
-    a usable dashboard with financial insights. The project helped her 
-    understand data modeling and analytics.`,
+    a usable dashboard with financial insights.`,
   },
   {
     topic: "projects blog vlog platform content",
     content: `Project: Blog/Vlog Platform built with Python, Flask, Jinja2, and PostgreSQL. 
     A full content management system where users can create, publish, and browse posts. 
     Rashni implemented routing, templates, and backend logic for the complete 
-    content lifecycle. This project strengthened her full-stack skills.`,
+    content lifecycle.`,
   },
   {
     topic: "projects todo list react",
     content: `Project: To-Do List App built with React and JavaScript. 
     A responsive task manager with full CRUD operations (Create, Read, Update, Delete). 
     Rashni focused on clean component architecture, smooth state management, 
-    and an intuitive user experience. This was her entry into modern React development.`,
+    and an intuitive user experience.`,
   },
   {
     topic: "certificates education harvard",
     content: `Rashni has earned the following certificates:
     1. CS50P - Introduction to Programming with Python from Harvard University (edX), awarded 2025. 
-    Covered functions, file I/O, regular expressions, OOP, and real problem-solving in Python.
     2. CS50X - Introduction to Computer Science from Harvard University (edX), awarded 2026. 
-    Harvard's legendary intro course covering C, Python, SQL, algorithms, data structures, 
-    memory management, and web development across 11 weeks.
-    3. Claude 101 - AI Fundamentals from Anthropic. Covers working effectively with Claude, 
-    prompting, AI capabilities and limitations, and building AI-native workflows.
-    4. Generative AI Mastermind from Outskill (Vaibhav Sisinty). 
-    A practical workshop on AI tools for developers.`,
+    3. Claude 101 - AI Fundamentals from Anthropic. 
+    4. Generative AI Mastermind from Outskill (Vaibhav Sisinty).
+    5. AI Workshop (2 Days) - Growth School.`,
   },
   {
     topic: "experience work",
     content: `Rashni currently has no formal work experience. She is a student who has 
-    built 4 real-world projects independently. She considers her strong CS fundamentals 
-    from Harvard CS50 programs and her hands-on project experience as her foundation. 
-    She is actively looking for her first internship or entry-level opportunity 
-    to work on real products with a real team.`,
+    built 4 real-world projects independently. She is actively looking for her first 
+    internship or entry-level opportunity to work on real products with a real team.`,
   },
   {
     topic: "contact hire available",
@@ -169,31 +158,24 @@ const DOCS = [
   {
     topic: "personality philosophy",
     content: `Rashni is detail-oriented, curious, and genuinely excited about building things. 
-    She started her CS journey through Harvard's CS50 programs which gave her 
-    deeper foundations than most bootcamp graduates. She believes in understanding 
-    why code works, not just copying solutions. Her personal philosophy: 
+    She started her CS journey through Harvard's CS50 programs. Her personal philosophy: 
     'Zero work experience just means all my best work is still ahead of me.' 
-    She uses AI as a deliberate collaborator, not a shortcut — 
-    treating it as a skill for 2026 and beyond.`,
+    She uses AI as a deliberate collaborator, not a shortcut.`,
   },
 ];
 
-// ── Simple keyword search to find relevant chunks ──
 function retrieveChunks(query) {
   const q = query.toLowerCase();
   const words = q.split(/\s+/).filter((w) => w.length > 2);
-
   const scored = DOCS.map((doc) => {
     const combined = (doc.topic + " " + doc.content).toLowerCase();
     let score = 0;
     words.forEach((word) => {
       if (combined.includes(word)) score += 1;
-      if (doc.topic.includes(word)) score += 2; // topic match weighs more
+      if (doc.topic.includes(word)) score += 2;
     });
     return { ...doc, score };
   });
-
-  // Return top 3 most relevant chunks
   return scored
     .filter((d) => d.score > 0)
     .sort((a, b) => b.score - a.score)
@@ -207,6 +189,9 @@ const msgs = document.getElementById("apMsgs");
 const inp = document.getElementById("apInp");
 const btn = document.getElementById("apSend");
 const chatHistory = [];
+
+// ── YOUR GROQ API KEY ──
+const GROQ_API_KEY = "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"; //
 
 function addM(r, t) {
   const d = document.createElement("div");
@@ -236,6 +221,7 @@ async function send() {
   const q = inp.value.trim();
   if (!q) return;
   inp.value = "";
+  btn.disabled = true;
   addM("u", q);
   showDots();
 
@@ -243,10 +229,7 @@ async function send() {
     retrieveChunks(q) ||
     "Rashni Thapa Magar is a BCA student and aspiring software developer in Kathmandu.";
 
-  chatHistory.push({ role: "user", content: q });
-  if (chatHistory.length > 8) chatHistory.splice(0, 2);
-
-  const system = `You are a friendly AI assistant embedded in Rashni Thapa Magar's 
+  const systemPrompt = `You are a friendly AI assistant embedded in Rashni Thapa Magar's 
 portfolio website. Only answer questions about Rashni using the context provided.
 Be warm, conversational, and concise (2-4 sentences). 
 If the answer isn't in the context, say you don't have that detail and 
@@ -254,27 +237,26 @@ invite them to contact Rashni at rashnithapamagar2@gmail.com.
 RELEVANT CONTEXT:
 ${context}`;
 
+  chatHistory.push({ role: "user", content: q });
+  if (chatHistory.length > 8) chatHistory.splice(0, 2);
+
   try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyD9ry_s_8VDrHCltH9Wr2ZLxfqqgoWW8CM`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [
-            {
-              role: "user",
-              parts: [{ text: system + "\n\nUser question: " + q }],
-            },
-          ],
-        }),
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${GROQ_API_KEY}`,
       },
-    );
+      body: JSON.stringify({
+        model: "llama3-8b-8192",
+        max_tokens: 300,
+        messages: [{ role: "system", content: systemPrompt }, ...chatHistory],
+      }),
+    });
 
     const data = await res.json();
-    console.log("API response:", data);
     const reply =
-      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      data.choices?.[0]?.message?.content ||
       "Sorry, I couldn't get a response.";
     rmDots();
     addM("ai", reply);
@@ -286,8 +268,11 @@ ${context}`;
       "ai",
       "Something went wrong. Reach Rashni directly at rashnithapamagar2@gmail.com 🙂",
     );
+  } finally {
+    btn.disabled = false;
   }
 }
+
 btn.addEventListener("click", send);
 inp.addEventListener("keydown", (e) => {
   if (e.key === "Enter") send();
