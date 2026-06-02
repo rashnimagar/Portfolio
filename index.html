@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rashni Thapa Magar — Software Developer</title>
+    <meta
+      name="description"
+      content="Aspiring software developer based in Kathmandu, Nepal. Python, Flask, React, Django. Open to internships and entry-level roles."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +22,7 @@
 
     <!-- NAV -->
     <nav>
-      <div class="nav-logo">RTM<span>.</span></div>
+      <a href="#hero" class="nav-logo">RTM<span>.</span></a>
       <ul class="nav-links">
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -27,19 +31,69 @@
         <li><a href="#ai-sec">AI</a></li>
         <li><a href="#about">About</a></li>
       </ul>
-      <a href="#contact" class="nav-cta">Hire Me →</a>
+      <div class="nav-right">
+        <a href="#contact" class="nav-cta">Hire Me →</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
     </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <a href="#hero" class="nav-logo drawer-logo">RTM<span>.</span></a>
+      </div>
+      <ul class="drawer-links">
+        <li>
+          <a href="#skills"><span class="drawer-num">01</span>Skills</a>
+        </li>
+        <li>
+          <a href="#projects"><span class="drawer-num">02</span>Projects</a>
+        </li>
+        <li>
+          <a href="#timeline"><span class="drawer-num">03</span>Journey</a>
+        </li>
+        <li>
+          <a href="#certs"><span class="drawer-num">04</span>Certs</a>
+        </li>
+        <li>
+          <a href="#ai-sec"><span class="drawer-num">05</span>AI Assistant</a>
+        </li>
+        <li>
+          <a href="#about"><span class="drawer-num">06</span>About Me</a>
+        </li>
+      </ul>
+      <div class="drawer-footer">
+        <a href="#contact" class="drawer-cta">Hire Me →</a>
+      </div>
+    </div>
 
     <!-- HERO -->
     <section id="hero">
       <div class="hero-rule"></div>
 
       <div class="hero-left">
+        <div class="hl-eyebrow">Portfolio 2026</div>
         <div class="hl-name"><em>Rashni</em><br />Thapa Magar</div>
         <div class="hl-role">Aspiring Software<br />Developer</div>
-        <span class="hl-tag">Available</span>
+        <span class="hl-tag">Available for work</span>
         <div class="hl-copy">
-          Building things<br />with Python · Flask<br />React · and curiosity.
+          Building things with<br />Python · Flask · Django<br />React · and
+          curiosity.
+        </div>
+        <div class="hl-socials">
+          <a href="mailto:rashnithapamagar2@gmail.com" class="hl-social"
+            >Email</a
+          >
+          <a
+            href="https://github.com/rashnimagar"
+            target="_blank"
+            class="hl-social"
+            >GitHub</a
+          >
         </div>
       </div>
 
@@ -48,24 +102,25 @@
         <span class="hero-word hw2">to my</span>
         <span class="hero-word hw3">portfolio</span>
       </div>
+      <div class="hero-bg-word">KTM · NP</div>
 
       <div class="hero-bottom">
         <div class="hb-stats">
-          <div>
-            <div class="hb-val">4</div>
+          <div class="hb-stat">
+            <div class="hb-val">5</div>
             <div class="hb-label">Projects</div>
           </div>
-          <div>
+          <div class="hb-stat">
             <div class="hb-val">5</div>
             <div class="hb-label">Certificates</div>
           </div>
-          <div>
+          <div class="hb-stat">
             <div class="hb-val">2027</div>
             <div class="hb-label">Graduating</div>
           </div>
         </div>
         <div class="hb-cta">
-          <a href="#projects" class="btn-red">View Work</a>
+          <a href="#projects" class="btn-red">View Work →</a>
           <a href="#contact" class="btn-outline-ink">Get in Touch</a>
         </div>
       </div>
@@ -88,9 +143,11 @@
             <div class="sc-icon">⌨</div>
           </div>
           <div class="pills">
-            <span class="pill star">Python</span
-            ><span class="pill">JavaScript</span> <span class="pill">Java</span
-            ><span class="pill">C</span><span class="pill">C#</span>
+            <span class="pill star">Python</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">Java</span>
+            <span class="pill">C</span>
+            <span class="pill">C#</span>
           </div>
         </div>
         <div class="skill-card">
@@ -99,10 +156,11 @@
             <div class="sc-icon">🖥</div>
           </div>
           <div class="pills">
-            <span class="pill">HTML</span><span class="pill">CSS</span>
-            <span class="pill star">React</span
-            ><span class="pill">Tailwind</span
-            ><span class="pill">Bootstrap</span>
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill star">React</span>
+            <span class="pill">Tailwind</span>
+            <span class="pill">Bootstrap</span>
           </div>
         </div>
         <div class="skill-card">
@@ -112,9 +170,11 @@
             <div class="sc-icon">⚙</div>
           </div>
           <div class="pills">
-            <span class="pill star">Flask</span
-            ><span class="pill">REST APIs</span> <span class="pill">Jinja2</span
-            ><span class="pill">Routing</span>
+            <span class="pill star">Flask</span>
+            <span class="pill star">Django</span>
+            <span class="pill">REST APIs</span>
+            <span class="pill">Jinja2</span>
+            <span class="pill">WebSockets</span>
           </div>
         </div>
         <div class="skill-card">
@@ -123,9 +183,11 @@
             <div class="sc-icon">🗄</div>
           </div>
           <div class="pills">
-            <span class="pill">SQL</span><span class="pill">MySQL</span>
-            <span class="pill star">PostgreSQL</span
-            ><span class="pill">SQLite</span>
+            <span class="pill">SQL</span>
+            <span class="pill">MySQL</span>
+            <span class="pill star">PostgreSQL</span>
+            <span class="pill">SQLite</span>
+            <span class="pill">Redis</span>
           </div>
         </div>
         <div class="skill-card">
@@ -135,8 +197,11 @@
             <div class="sc-icon">🛠</div>
           </div>
           <div class="pills">
-            <span class="pill star">Git</span><span class="pill">GitHub</span>
-            <span class="pill">CLI</span><span class="pill">VS Code</span>
+            <span class="pill star">Git</span>
+            <span class="pill">GitHub</span>
+            <span class="pill">CLI</span>
+            <span class="pill">VS Code</span>
+            <span class="pill">Celery</span>
           </div>
         </div>
         <div class="skill-card">
@@ -145,10 +210,11 @@
             <div class="sc-icon">✦</div>
           </div>
           <div class="pills">
-            <span class="pill">Algorithms</span
-            ><span class="pill">Data Structures</span>
-            <span class="pill star">RAG</span
-            ><span class="pill">Prompting</span>
+            <span class="pill">Algorithms</span>
+            <span class="pill">Data Structures</span>
+            <span class="pill star">RAG</span>
+            <span class="pill">Prompting</span>
+            <span class="pill">JWT Auth</span>
           </div>
         </div>
       </div>
@@ -161,25 +227,77 @@
           <div class="sec-label">Selected Work</div>
           <h2 class="sec-title">Projects</h2>
         </div>
-        <div class="proj-count">04</div>
+        <div class="proj-count">05</div>
       </div>
       <div class="bento rv">
+        <!-- VELORA — flagship -->
+        <div class="pc p5 featured-velora">
+          <div class="stamp">FLAGSHIP</div>
+          <div class="velora-badge">Most complex project</div>
+          <div class="pc-num">
+            <span>01 / 05</span>
+            <span class="pc-badge teal">Django · React · PostgreSQL</span>
+          </div>
+          <h3 class="pc-title">VELORA — Trust-Focused Ecommerce Platform</h3>
+          <p class="pc-desc">
+            A full-stack ecommerce platform built around trust. Features
+            multi-role dashboards (Buyer / Seller / Admin), a seller trust score
+            system, verified reviews gated to delivered orders, and real-time
+            buyer-seller chat via WebSockets. Rashni's most architecturally
+            complex project — from REST API design to JWT auth to async task
+            queues.
+          </p>
+          <div class="pc-stack">
+            <span class="pc-tag">Django</span>
+            <span class="pc-tag">React.js</span>
+            <span class="pc-tag">PostgreSQL</span>
+            <span class="pc-tag">Django Channels</span>
+            <span class="pc-tag">WebSockets</span>
+            <span class="pc-tag">Redis</span>
+            <span class="pc-tag">Celery</span>
+            <span class="pc-tag">JWT Auth</span>
+            <span class="pc-tag">Redux Toolkit</span>
+            <span class="pc-tag">Tailwind CSS</span>
+          </div>
+          <div class="pc-foot">
+            <div>
+              <div class="pf-val">Multi-role</div>
+              <div class="pf-label">Buyer / Seller / Admin</div>
+            </div>
+            <div>
+              <div class="pf-val">Real-time</div>
+              <div class="pf-label">WebSocket chat</div>
+            </div>
+            <div>
+              <div class="pf-val">Trust</div>
+              <div class="pf-label">Score system</div>
+            </div>
+            <div>
+              <div class="pf-val">Verified</div>
+              <div class="pf-label">Review gating</div>
+            </div>
+          </div>
+          <div class="pc-arrow">↗</div>
+        </div>
+
+        <!-- Chat App -->
         <div class="pc p1">
           <div class="stamp">BUILT</div>
           <div class="pc-num">
-            <span>01 / 04</span><span class="pc-badge">Flask · JS</span>
+            <span>02 / 05</span><span class="pc-badge">Flask · JS</span>
           </div>
           <h3 class="pc-title">Real-Time Chat Application</h3>
           <p class="pc-desc">
             Full-duplex messaging between users without page reloads. Deepened
             understanding of client-server architecture and real-time web
-            patterns using Flask and JavaScript.
+            patterns.
           </p>
           <div class="pc-stack">
-            <span class="pc-tag">Python</span><span class="pc-tag">Flask</span>
-            <span class="pc-tag">JavaScript</span
-            ><span class="pc-tag">WebSockets</span
-            ><span class="pc-tag">HTML/CSS</span>
+            <span class="pc-tag">Python</span>
+            <span class="pc-tag">Flask</span>
+            <span class="pc-tag">JavaScript</span>
+            <span class="pc-tag">WebSockets</span>
+            <span class="pc-tag">HTML/CSS</span>
           </div>
           <div class="pc-foot">
             <div>
@@ -193,10 +311,12 @@
           </div>
           <div class="pc-arrow">↗</div>
         </div>
+
+        <!-- Expense Tracker -->
         <div class="pc p2">
           <div class="stamp">BUILT</div>
           <div class="pc-num">
-            <span>02 / 04</span
+            <span>03 / 05</span
             ><span class="pc-badge green">Flask · SQLite</span>
           </div>
           <h3 class="pc-title">Expense Tracker</h3>
@@ -205,8 +325,9 @@
             for financial insights and structured data handling.
           </p>
           <div class="pc-stack">
-            <span class="pc-tag">Python</span><span class="pc-tag">Flask</span
-            ><span class="pc-tag">SQLite</span>
+            <span class="pc-tag">Python</span>
+            <span class="pc-tag">Flask</span>
+            <span class="pc-tag">SQLite</span>
           </div>
           <div class="pc-foot">
             <div>
@@ -220,10 +341,12 @@
           </div>
           <div class="pc-arrow">↗</div>
         </div>
+
+        <!-- Blog Platform -->
         <div class="pc p3">
           <div class="stamp">BUILT</div>
           <div class="pc-num">
-            <span>03 / 04</span><span class="pc-badge blue">Full Stack</span>
+            <span>04 / 05</span><span class="pc-badge blue">Full Stack</span>
           </div>
           <h3 class="pc-title">Blog / Vlog Platform</h3>
           <p class="pc-desc">
@@ -231,9 +354,10 @@
             Flask, Jinja2 templating and PostgreSQL for robust data management.
           </p>
           <div class="pc-stack">
-            <span class="pc-tag">Python</span><span class="pc-tag">Flask</span>
-            <span class="pc-tag">PostgreSQL</span
-            ><span class="pc-tag">Jinja2</span>
+            <span class="pc-tag">Python</span>
+            <span class="pc-tag">Flask</span>
+            <span class="pc-tag">PostgreSQL</span>
+            <span class="pc-tag">Jinja2</span>
           </div>
           <div class="pc-foot">
             <div>
@@ -243,22 +367,25 @@
           </div>
           <div class="pc-arrow">↗</div>
         </div>
+
+        <!-- To-Do App -->
         <div class="pc p4">
           <div class="stamp">BUILT</div>
           <div class="pc-num">
-            <span>04 / 04</span><span class="pc-badge yellow">React · JS</span>
+            <span>05 / 05</span><span class="pc-badge yellow">React · JS</span>
           </div>
           <h3 class="pc-title">To-Do List App</h3>
           <p class="pc-desc">
             Responsive task manager with full CRUD operations, smooth state
-            management, and clean component architecture. Her entry into modern
+            management, and clean component architecture — her entry into modern
             React development.
           </p>
           <div class="pc-stack">
-            <span class="pc-tag">React</span
-            ><span class="pc-tag">JavaScript</span>
-            <span class="pc-tag">HTML</span><span class="pc-tag">CSS</span
-            ><span class="pc-tag">State Mgmt</span>
+            <span class="pc-tag">React</span>
+            <span class="pc-tag">JavaScript</span>
+            <span class="pc-tag">HTML</span>
+            <span class="pc-tag">CSS</span>
+            <span class="pc-tag">State Mgmt</span>
           </div>
           <div class="pc-foot">
             <div>
@@ -309,7 +436,7 @@
               <div class="tc-title">First Projects — React &amp; Flask</div>
               <div class="tc-sub">
                 Built To-Do List App in React and Blog/Vlog Platform with Flask
-                — first full-stack experiences.
+                — first full-stack experiences and component thinking.
               </div>
               <span class="tc-badge green">Projects</span>
             </div>
@@ -317,34 +444,6 @@
         </div>
         <div class="tl-row">
           <div class="tl-year">2025</div>
-          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-          <div class="tl-body">
-            <div class="tl-card">
-              <div class="tc-title">Harvard CS50X Certified</div>
-              <div class="tc-sub">
-                Completed Harvard's legendary intro CS — C, Python, SQL,
-                algorithms, data structures, memory management across 11 weeks.
-              </div>
-              <span class="tc-badge red">Certificate · Harvard</span>
-            </div>
-          </div>
-        </div>
-        <div class="tl-row">
-          <div class="tl-year">2025</div>
-          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-          <div class="tl-body">
-            <div class="tl-card">
-              <div class="tc-title">Chat App &amp; Expense Tracker</div>
-              <div class="tc-sub">
-                Built two more full-stack apps — mastered real-time systems,
-                client-server patterns, and data analytics.
-              </div>
-              <span class="tc-badge green">Projects</span>
-            </div>
-          </div>
-        </div>
-        <div class="tl-row">
-          <div class="tl-year">2026</div>
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-body">
             <div class="tl-card">
@@ -358,6 +457,51 @@
           </div>
         </div>
         <div class="tl-row">
+          <div class="tl-year">2025</div>
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <div class="tc-title">Chat App &amp; Expense Tracker</div>
+              <div class="tc-sub">
+                Built two more full-stack apps — mastered real-time systems,
+                WebSocket patterns, client-server architecture, and data
+                analytics dashboards.
+              </div>
+              <span class="tc-badge green">Projects</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-year">2026</div>
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <div class="tc-title">Harvard CS50X Certified</div>
+              <div class="tc-sub">
+                Completed Harvard's legendary intro CS course. C, Python, SQL,
+                algorithms, data structures, and memory management across 11
+                weeks.
+              </div>
+              <span class="tc-badge red">Certificate · Harvard</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-year">2026</div>
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <div class="tc-title">VELORA — Flagship Project</div>
+              <div class="tc-sub">
+                Built her most complex system — a trust-focused ecommerce
+                platform with Django, React, PostgreSQL, WebSockets, JWT, Redis,
+                and multi-role architecture.
+              </div>
+              <span class="tc-badge teal">Full-Stack System</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
           <div class="tl-year">Now</div>
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-body">
@@ -365,7 +509,7 @@
               <div class="tc-title">AI Fundamentals — Anthropic</div>
               <div class="tc-sub">
                 Claude 101 certified. Building AI-native workflows and RAG
-                systems. Seeking first internship or entry-level role.
+                systems. Actively seeking first internship or entry-level role.
               </div>
               <span class="tc-badge">Open to work ✦</span>
             </div>
@@ -382,7 +526,11 @@
           <h2 class="sec-title">Certificates</h2>
         </div>
         <div class="certs-grid rv">
-          <div class="cert">
+          <div
+            class="cert"
+            onclick="window.open('certificates/CS50X.pdf')"
+            style="cursor: pointer"
+          >
             <div class="cert-stripe"></div>
             <div class="cert-from">Harvard University · edX</div>
             <div class="cert-name">CS50X — Intro to Computer Science</div>
@@ -392,7 +540,11 @@
               and web development across 11 weeks.
             </div>
           </div>
-          <div class="cert">
+          <div
+            class="cert"
+            onclick="window.open('certificates/CS50P.pdf')"
+            style="cursor: pointer"
+          >
             <div class="cert-stripe"></div>
             <div class="cert-from">Harvard University · edX</div>
             <div class="cert-name">CS50P — Programming with Python</div>
@@ -402,7 +554,11 @@
               problem-solving. Deep fundamentals.
             </div>
           </div>
-          <div class="cert">
+          <div
+            class="cert"
+            onclick="window.open('certificates/claude101.pdf')"
+            style="cursor: pointer"
+          >
             <div class="cert-stripe"></div>
             <div class="cert-from">Anthropic</div>
             <div class="cert-name">Claude 101 — AI Fundamentals</div>
@@ -412,7 +568,39 @@
               AI-native workflows and RAG systems.
             </div>
           </div>
-          <div class="cert">
+          <div
+            class="cert"
+            onclick="window.open('certificates/AI_Fluency.pdf')"
+            style="cursor: pointer"
+          >
+            <div class="cert-stripe"></div>
+            <div class="cert-from">Anthropic</div>
+            <div class="cert-name">AI Fluency: Framework & Foundations</div>
+            <div class="cert-year">2026</div>
+            <div class="cert-desc">
+              Claude fundamentals — prompt engineering, AI capabilities, and
+              responsible AI workflow design.
+            </div>
+          </div>
+          <div
+            class="cert"
+            onclick="window.open('certificates/Claude_Code_in_Action.pdf')"
+            style="cursor: pointer"
+          >
+            <div class="cert-stripe"></div>
+            <div class="cert-from">Anthropic</div>
+            <div class="cert-name">Claude Code in Action</div>
+            <div class="cert-year">2026</div>
+            <div class="cert-desc">
+              Building real projects using Claude Code — agentic CLI workflows,
+              multi-file editing, and AI-assisted development.
+            </div>
+          </div>
+          <div
+            class="cert"
+            onclick="window.open('certificates/Outskill.pdf')"
+            style="cursor: pointer"
+          >
             <div class="cert-stripe"></div>
             <div class="cert-from">Outskill · Vaibhav Sisinty</div>
             <div class="cert-name">Generative AI Mastermind</div>
@@ -420,16 +608,6 @@
             <div class="cert-desc">
               Practical AI tools for developers — integrating LLMs into real
               development workflows and products.
-            </div>
-          </div>
-          <div class="cert">
-            <div class="cert-stripe"></div>
-            <div class="cert-from">Growth School</div>
-            <div class="cert-name">AI Workshop — 2 Days</div>
-            <div class="cert-year">2026</div>
-            <div class="cert-desc">
-              Intensive two-day workshop on practical AI applications for
-              software developers.
             </div>
           </div>
         </div>
@@ -445,27 +623,28 @@
           <p>
             Ask it anything — my stack, my projects, whether I'm available, or
             how to reach me. Powered by a RAG system built right into this page.
-            No API. No cost. Instant.
+            No API key. No server. Instant.
           </p>
           <div class="ai-feats">
             <div class="af">
               <div class="af-ico">🔍</div>
               <div class="af-txt">
-                <strong>Context-aware answers</strong>Knows my projects, skills,
-                certs, and availability.
+                <strong>Context-aware answers</strong>Knows my 5 projects,
+                skills, certs, and availability in full detail.
               </div>
             </div>
             <div class="af">
               <div class="af-ico">⚡</div>
               <div class="af-txt">
-                <strong>Instant responses</strong>
+                <strong>Instant responses</strong>BM25 retrieval — no latency,
+                no API calls, works offline.
               </div>
             </div>
             <div class="af">
               <div class="af-ico">✦</div>
               <div class="af-txt">
-                <strong>2026 thinking</strong>Using AI deliberately is a skill.
-                This is proof of that.
+                <strong>2026 thinking</strong>Using AI deliberately as a
+                collaborator is a skill. This is proof of that.
               </div>
             </div>
           </div>
@@ -495,7 +674,7 @@
               <input
                 class="t-inp"
                 id="apInp"
-                placeholder="What tech does Rashni know?"
+                placeholder="What is VELORA?"
                 maxlength="140"
               />
               <button class="t-run" id="apSend">RUN</button>
@@ -507,58 +686,74 @@
 
     <!-- ABOUT -->
     <section id="about">
-      <div class="about-grid">
-        <div class="sb rv">
-          <div class="id-badge">
-            <div class="idb-top">RTM PORTFOLIO</div>
-            <div class="idb-photo">RTM</div>
-            <div class="idb-info">
-              <div class="idb-name">Rashni T. M.</div>
-              <div class="idb-role">SOFTWARE DEVELOPER</div>
+      <!-- Section header -->
+      <div class="about-header rv">
+        <div class="sec-label">About Me</div>
+        <h2 class="sec-title">Detail-oriented<br />by default</h2>
+      </div>
+
+      <!-- Desk workspace grid -->
+      <div class="desk rv">
+        <!-- ── COLUMN 1: Identity card + quote strip ── -->
+        <div class="desk-col desk-col--identity">
+          <!-- ID Card -->
+          <div class="id-card about-card" data-tilt>
+            <div class="id-card__lanyard"></div>
+            <div class="id-card__pin"></div>
+            <div class="id-card__header">
+              <span class="id-card__badge-text">RTM PORTFOLIO</span>
+              <span class="id-card__year">2026</span>
+            </div>
+            <div class="id-card__photo">
+              <picture>
+                <source
+                  srcset="static/img/rashni-portrait.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="static/img/rashni-portrait.jpg"
+                  alt="Rashni Thapa Magar — Software Developer"
+                  class="id-card__portrait"
+                  width="600"
+                  height="750"
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <div class="id-card__body">
+              <div class="id-card__name">Rashni T.M.</div>
+              <div class="id-card__role">Software Developer</div>
+              <div class="id-card__location">📍 Kathmandu, NP</div>
+              <div class="id-card__divider"></div>
+              <div class="id-card__tag">Available for work</div>
             </div>
           </div>
-          <div class="clipboard">
-            <div class="clip-metal"><div class="clip-bar"></div></div>
-            <div class="clip-paper">
-              <div class="clip-title">Open To</div>
-              <div class="clip-item">Internships</div>
-              <div class="clip-item">Entry-level roles</div>
-              <div class="clip-item">Freelance projects</div>
-              <div class="clip-item">Remote work</div>
-              <div class="clip-item">Collaborations</div>
-            </div>
-          </div>
-          <div class="paper-strip">
-            <div class="ps-text">
+
+          <!-- Quote strip -->
+          <div class="quote-strip about-card">
+            <div class="quote-strip__tape"></div>
+            <p class="quote-strip__text">
               "Zero experience = all my best work is ahead" ✦
-            </div>
-          </div>
-          <div class="sticky s1">
-            <div class="s-head">Contact</div>
-            📍 Kathmandu, NP<br />📞 9828011064<br />✉ rashnithapamagar2<br />@gmail.com
-          </div>
-          <div class="sticky s2">
-            <div class="s-head">Currently</div>
-            BCA · 5th Sem<br />SESAM · 2027 grad
+            </p>
           </div>
         </div>
 
-        <div class="about-text rv">
-          <div class="sec-label">About Me</div>
-          <h2 class="sec-title" style="margin-bottom: 20px">
-            Detail-oriented<br />by default
-          </h2>
+        <!-- ── COLUMN 2: Bio text + stats ── -->
+        <div class="desk-col desk-col--bio">
           <p class="about-bio">
-            I'm <strong>Rashni Thapa Magar</strong>, a BCA student in my 6th
-            semester at SchEMS, Kathmandu. I build full-stack web applications
-            with <strong>Python, Flask, and React</strong> — and I care deeply
-            about <em>why</em> code works, not just that it does.
+            I'm <strong>Rashni Thapa Magar</strong>, a BCA student in my 5th
+            semester at SESAM, Kathmandu. I build full-stack web applications
+            with <strong>Python, Flask, Django, and React</strong> — and I care
+            deeply about <em>why</em> code works, not just that it does.
           </p>
           <p class="about-bio">
             My journey started with Harvard's CS50 programs, which gave me
             deeper foundations than most — memory management, algorithms, C
-            before Python. That rigor shapes how I approach every project.
+            before Python. That rigor shapes how I approach every project,
+            including VELORA, a trust-focused ecommerce platform.
           </p>
+
           <div class="about-quote">
             <p>
               "Zero work experience just means all my best work is still ahead
@@ -566,9 +761,10 @@
             </p>
             <cite>— Personal philosophy</cite>
           </div>
+
           <div class="about-nums">
             <div class="an">
-              <div class="an-v">4</div>
+              <div class="an-v">5</div>
               <div class="an-l">Projects</div>
             </div>
             <div class="an">
@@ -580,9 +776,46 @@
               <div class="an-l">Grad</div>
             </div>
           </div>
+
           <a href="#contact" class="btn-red">Let's Work Together →</a>
         </div>
+
+        <!-- ── COLUMN 3: Sticky notes stack ── -->
+        <div class="desk-col desk-col--notes">
+          <!-- Clipboard -->
+          <div class="clipboard-card about-card" data-tilt>
+            <div class="clipboard-card__clip">
+              <div class="clipboard-card__clip-bar"></div>
+            </div>
+            <div class="clipboard-card__paper">
+              <div class="clip-title">Open To</div>
+              <div class="clip-item">Internships</div>
+              <div class="clip-item">Entry-level roles</div>
+              <div class="clip-item">Freelance projects</div>
+              <div class="clip-item">Remote work</div>
+              <div class="clip-item">Collaborations</div>
+            </div>
+          </div>
+
+          <!-- Contact sticky -->
+          <div class="sticky-note sticky-note--yellow about-card" data-tilt>
+            <div class="sticky-note__tape"></div>
+            <div class="s-head">Contact</div>
+            <div class="sticky-note__line">📍 Kathmandu, NP</div>
+            <div class="sticky-note__line">📞 9828011064</div>
+            <div class="sticky-note__line">✉ rashnithapamagar2@gmail.com</div>
+          </div>
+
+          <!-- Currently sticky -->
+          <div class="sticky-note sticky-note--green about-card" data-tilt>
+            <div class="sticky-note__tape"></div>
+            <div class="s-head">Currently</div>
+            <div class="sticky-note__line">BCA · 5th Semester</div>
+            <div class="sticky-note__line">SESAM · 2027 grad</div>
+          </div>
+        </div>
       </div>
+      <!-- /desk -->
     </section>
 
     <!-- CONTACT -->
@@ -594,7 +827,7 @@
         </div>
         <p class="contact-sub">
           Open to internships, entry-level roles, freelance projects, and
-          collaborations. I reply same day.
+          collaborations. Based in Kathmandu — open to remote. I reply same day.
         </p>
         <div class="contact-row">
           <a href="mailto:rashnithapamagar2@gmail.com" class="cl red"
