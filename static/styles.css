@@ -812,9 +812,22 @@ nav.scrolled {
 }
 .ticker-inner {
   display: flex;
-  gap: 40px;
-  animation: tk 38s linear infinite;
+  /* gap lives on the tk-set wrappers below, not here, so -50% math is clean */
+  animation: none; /* held until JS measures and adds .tk-ready */
   width: max-content;
+  will-change: transform;
+}
+.ticker-inner.tk-ready {
+  animation: tk 60s linear infinite;
+}
+/* Each set is a flex row with gap between items */
+.tk-set {
+  display: flex;
+  flex-shrink: 0;
+  gap: 40px;
+  /* Right padding equal to gap so the seam between set 1 and set 2 looks
+     identical to the gap between any two items inside a set */
+  padding-right: 40px;
 }
 .tk-item {
   font-family: "JetBrains Mono", monospace;
@@ -826,6 +839,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
 }
 .tk-item::before {
   content: "✦";
@@ -837,7 +851,8 @@ nav.scrolled {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    /* JS sets --tk-shift to the exact pixel width of one .tk-set */
+    transform: translateX(var(--tk-shift, -50%));
   }
 }
 .skills-layout {
@@ -2365,6 +2380,10 @@ footer {
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+  /* Ticker exempt: override wildcard AFTER it so the cascade wins */
+  .ticker-inner.tk-ready {
+    animation-duration: 60s !important;
   }
   .ticker-inner {
     animation: none;

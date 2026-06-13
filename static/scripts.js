@@ -87,12 +87,14 @@ drawerBackdrop.className = "drawer-backdrop";
 document.body.appendChild(drawerBackdrop);
 
 function toggleMenu(forceClose = false) {
-  const isOpen = forceClose ? false : !mobileDrawer.classList.contains("active");
-  
+  const isOpen = forceClose
+    ? false
+    : !mobileDrawer.classList.contains("active");
+
   navToggle.classList.toggle("active", isOpen);
   mobileDrawer.classList.toggle("active", isOpen);
   drawerBackdrop.classList.toggle("active", isOpen);
-  
+
   // Toggle body scroll locking
   document.body.style.overflow = isOpen ? "hidden" : "";
 }
@@ -100,9 +102,11 @@ function toggleMenu(forceClose = false) {
 if (navToggle && mobileDrawer) {
   navToggle.addEventListener("click", () => toggleMenu());
   drawerBackdrop.addEventListener("click", () => toggleMenu(true));
-  
+
   // Close drawer when clicking any link inside it
-  const drawerLinks = mobileDrawer.querySelectorAll(".drawer-links a, .drawer-cta");
+  const drawerLinks = mobileDrawer.querySelectorAll(
+    ".drawer-links a, .drawer-cta",
+  );
   drawerLinks.forEach((link) => {
     link.addEventListener("click", () => toggleMenu(true));
   });
@@ -123,7 +127,7 @@ const spyObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const activeId = entry.target.getAttribute("id");
-      
+
       const updateActiveState = (links) => {
         links.forEach((link) => {
           const href = link.getAttribute("href");
@@ -134,7 +138,7 @@ const spyObserver = new IntersectionObserver((entries) => {
           }
         });
       };
-      
+
       updateActiveState(desktopLinks);
       updateActiveState(sideLinks);
     }
@@ -165,10 +169,25 @@ const skills = [
   "WebSockets",
 ];
 const t = document.getElementById("ticker");
-const row = [...skills, ...skills]
+
+// Build one set of items wrapped in a measurable span
+const singleRow = skills
   .map((s) => `<span class="tk-item">${s}</span>`)
   .join("");
-t.innerHTML = row + row;
+// Two identical copies — second is the seamless loop continuation
+t.innerHTML =
+  `<span class="tk-set">${singleRow}</span>` +
+  `<span class="tk-set">${singleRow}</span>`;
+
+// After paint: measure the exact rendered pixel width of one set and drive
+// the animation via a CSS custom property — eliminates all gap-math rounding.
+requestAnimationFrame(() => {
+  const firstSet = t.querySelector(".tk-set");
+  if (!firstSet) return;
+  const setWidth = firstSet.offsetWidth;
+  t.style.setProperty("--tk-shift", `-${setWidth}px`);
+  t.classList.add("tk-ready");
+});
 
 /* ══════════ SCROLL REVEAL ══════════ */
 const io = new IntersectionObserver(
